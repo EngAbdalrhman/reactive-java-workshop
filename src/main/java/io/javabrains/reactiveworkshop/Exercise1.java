@@ -77,6 +77,13 @@ public class Exercise1 {
         .flatMap(id -> StreamSources.userStream().filter(user -> user.getId() == id))
         .map(User::getFirstName)
         .forEach(System.out::println);
+        /* 
+        StreamSources.userStream()
+        .filter(u -> StreamSources.intNumbersStream()
+        .anyMatch(id -> id == u.getId()) )
+        .map(u -> u.getFirstName())
+        .forEach(System.out::println);
+        */
     }
 
 }

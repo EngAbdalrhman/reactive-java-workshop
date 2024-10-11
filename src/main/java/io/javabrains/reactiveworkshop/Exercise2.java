@@ -9,11 +9,15 @@ public class Exercise2 {
         // Use ReactiveSources.intNumbersFlux() and ReactiveSources.userFlux()
 
         // Print all numbers in the ReactiveSources.intNumbersFlux stream
-        // TODO: Write code here
+        // ReactiveSources.intNumbersFlux().toIterable().forEach(element -> System.err.println(element)); //**  X don't wait for it and keep finindg all elements (sync)
+        ReactiveSources.intNumbersFlux().subscribe(element -> System.err.println(element)); //**  stream emits data and subscripe for event (async)
+        // ** Whenever new event emitted then the data is pushed
 
         // Print all users in the ReactiveSources.userFlux stream
-        // TODO: Write code here
+        // ReactiveSources.userFlux().toIterable().forEach(element -> System.err.println(element));
+        ReactiveSources.userFlux().subscribe(element -> System.err.println(element));
 
+        //**  Important to force java wait till strams push data
         System.out.println("Press a key to end");
         System.in.read();
     }
