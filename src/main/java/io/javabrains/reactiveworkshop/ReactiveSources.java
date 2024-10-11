@@ -1,9 +1,9 @@
 package io.javabrains.reactiveworkshop;
 
+import java.time.Duration;
+
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.time.Duration;
 
 /**
  * This class is a source of reactive streams used in the exercises.
@@ -13,6 +13,7 @@ import java.time.Duration;
  */
 public class ReactiveSources {
 
+    // Flux is publisher acts like source of the observer pattern
     public static Flux<String> stringNumbersFlux() {
         return Flux.just("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten")
                 .delayElements(Duration.ofSeconds(1));
