@@ -1,6 +1,7 @@
 package io.javabrains.reactiveworkshop;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class Exercise4 {
 
@@ -9,13 +10,18 @@ public class Exercise4 {
         // Use ReactiveSources.intNumberMono()
 
         // Print the value from intNumberMono when it emits
-        // TODO: Write code here
-
+        // ReactiveSources.intNumberMono().subscribe(element -> System.out.println(element)); //** once gets 1st object its done
+        ReactiveSources.intNumberMono().subscribe(
+            element -> System.out.println(element),
+            err -> System.out.println(err.getMessage()),
+            () -> System.out.println("done")
+        );
         // Get the value from the Mono into an integer variable
-        // TODO: Write code here
-
+        Integer num = ReactiveSources.intNumberMono().block(); //** may only contains 1 emitted elemnt / wait till it emmits (block)
+        Optional<Integer> opn = ReactiveSources.intNumberMono().blockOptional(); 
         System.out.println("Press a key to end");
         System.in.read();
+        // flux like Mono<Mono<object>>
     }
 
 }
