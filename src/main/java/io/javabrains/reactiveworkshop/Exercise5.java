@@ -15,7 +15,9 @@ public class Exercise5 {
 
         // Subscribe to a flux using the error and completion hooks
         ReactiveSources.intNumbersFlux().subscribe(
-            element -> System.out.println(element),
+            element -> {
+                System.out.println(element);
+            },
             err -> System.out.println(err.getMessage()),
             () -> System.out.println("done")
         );
@@ -53,6 +55,6 @@ class MySubscriber<T> extends BaseSubscriber<T>{
 
     public void hookOnNext(T value){
         System.out.printf("a %s value emmited \n",value.toString());
-        request(2); // to request after reciving
+        request(2); // to request after reciving (ok to push)
     }
 }

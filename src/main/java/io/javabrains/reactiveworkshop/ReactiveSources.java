@@ -58,11 +58,11 @@ public class ReactiveSources {
 
     }
 
-    public static Flux<String> unresponsiveFlux() {
+    public static Flux<String> irresponsiveFlux() {
         return Flux.never();
     }
 
-    public static Mono<String> unresponsiveMono() {
+    public static Mono<String> irresponsiveMono() {
         return Mono.never();
     }
 
